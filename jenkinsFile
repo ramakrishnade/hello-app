@@ -5,7 +5,9 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                echo 'Hello'
+               script {
+                  sayHello()
+                }
             }
         }
     }
