@@ -6,6 +6,13 @@ pipeline {
         stage('Code Checkout') {
             steps {
                script {
+                    def workingDir = checkoutScm("https://github.com/tejashreeSalvi/django-todo-cicd.git", "develop")
+                }
+            }
+        }
+        stage('Code Checkout') {
+            steps {
+               script {
                   sayHello()
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                     echo "BUILDNumber ${env.BUILD_NUMBER} and BUILDTAG ${env.BUILD_TAG}"
