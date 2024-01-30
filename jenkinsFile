@@ -5,10 +5,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                script {
-                  def workingDir = checkoutScm("https://github.com/ramakrishnade/hello-app.git", "master")
-                  echo $workingDir
-                }
+                echo 'Hello'
             }
         }
     }
