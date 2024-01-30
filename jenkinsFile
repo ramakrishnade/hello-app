@@ -3,7 +3,7 @@
 pipeline {
     agent any
     stages {
-        stage('Code Checkout') {
+        stage('Code Demo') {
             steps {
                script {
                     def workingDir = checkoutScm("https://github.com/tejashreeSalvi/django-todo-cicd.git", "develop")
