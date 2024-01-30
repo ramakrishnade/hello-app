@@ -6,7 +6,7 @@ pipeline {
         stage('Code Demo') {
             steps {
                script {
-                    def workingDir = checkoutScm("https://github.com/tejashreeSalvi/django-todo-cicd.git", "develop")
+                    def workingDir = checkoutScm("https://github.com/ramakrishnade/hello-app.git", "master")
                 }
             }
         }
