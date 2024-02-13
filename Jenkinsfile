@@ -20,7 +20,7 @@ pipeline {
             {
                 script
                 {
-                    checkoutScm()
+                    checkoutScm("Rama","Krishna")
                 }
             }
         }
