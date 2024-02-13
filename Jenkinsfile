@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-        stages('SCM Checkout')
+        stage('SCM Checkout')
         {
             steps
             {
