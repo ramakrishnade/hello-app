@@ -10,7 +10,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 script {
-                    checkoutScm()
+                    sayHello()
                 }
             }
         }
