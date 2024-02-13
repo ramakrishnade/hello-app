@@ -21,7 +21,7 @@ pipeline {
                 script
                 {
                     
-                    checkoutScm("Rama","https://github.com/ramakrishnade/hello-app.git")
+                    checkoutScm("https://github.com/ramakrishnade/hello-app.git","Krishna")
                 }
             }
         }
