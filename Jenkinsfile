@@ -14,5 +14,15 @@ pipeline {
                 }
             }
         }
+        stages('SCM Checkout')
+        {
+            steps
+            {
+                script
+                {
+                    checkoutScm()
+                }
+            }
+        }
     }
 }
