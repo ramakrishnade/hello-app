@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Git Checkout') {
             steps {
-               checkoutScm()
+                script {
+                    checkoutScm()
+                }
             }
         }
     }
