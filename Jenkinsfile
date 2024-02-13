@@ -14,15 +14,18 @@ pipeline {
                 }
             }
         }
-        stage('SCM Checkout')
+        stage('checkout scmGit')
         {
             steps
             {
                 script
                 {
+                    
                     checkoutScm("Rama","Krishna")
                 }
             }
         }
     }
 }
+
+
