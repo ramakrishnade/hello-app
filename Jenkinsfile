@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Git Checkout') {
             steps {
-               checkoutScm("https://github.com/ramakrishnade/hello-app.git","master")
+               checkoutScm()
             }
         }
     }
