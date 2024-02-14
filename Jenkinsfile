@@ -10,8 +10,10 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('Git Checkout') {
-            echo "Hello ${param.PERSON}"
+        stage('Parameters') {
+            steps{
+                echo "Hello ${param.PERSON}"
+            }
         }
         stage('Git Checkout') {
             steps {
