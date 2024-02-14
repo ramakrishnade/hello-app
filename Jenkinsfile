@@ -3,6 +3,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        Text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
     }
     stages {
         stage('Hello') {
@@ -13,6 +14,7 @@ pipeline {
         stage('Parameters') {
             steps{
                 echo "Hello ${params.PERSON}"
+                echo "${params.BIOGRAPHY}"
             }
         }
         stage('Git Checkout') {
