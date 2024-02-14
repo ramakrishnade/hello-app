@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
         text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-        choice(name:'CHOICES' ,choices:['stage','test','prod'],description:'Choose stage')
+        choice(name:'ENVIRONMENT' ,choices:['stage','test','prod'],description:'Choose stage')
     }
     stages {
         stage('Hello') {
@@ -23,14 +23,15 @@ pipeline {
         {
             when
             {
-                expression {
-                    params.CHOICES == 'stage'
+                expression 
+                {
+                    params.ENVIRONMENT  == 'stage'
                 }
             }
-                    steps
-                    {
-                        echo "Deplying into Staging server ${params.CHOICES}"
-                    }
+            steps
+            {
+                echo "Deplying into Staging server ${params.ENVIRONMENT}"
+            }
             }
         stage('test')
         {
