@@ -15,6 +15,7 @@ pipeline {
             steps{
                 echo "Hello ${params.PERSON}"
                 echo "${params.BIOGRAPHY}"
+                echo "Build Number ${env.BUILD_ID}"
             }
         }
         stage('Git Checkout') {
