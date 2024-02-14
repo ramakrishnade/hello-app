@@ -35,6 +35,13 @@ pipeline {
             }
         stage('test')
         {
+             when
+            {
+                expression 
+                {
+                    params.ENVIRONMENT  == 'test'
+                }
+            }
             steps
             {
                 echo "deploying to test server"
