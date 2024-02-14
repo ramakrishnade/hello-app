@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Parameters') {
             steps{
-                echo "Hello ${param.PERSON}"
+                echo "Hello ${params.PERSON}"
             }
         }
         stage('Git Checkout') {
