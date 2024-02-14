@@ -23,14 +23,15 @@ pipeline {
         {
             when
             {
-                expression {params.CHOICES == 'stage'}
+                expression {
+                    params.CHOICES == 'stage'
+                }
+            }
                     steps
                     {
                         echo "Deplying into Staging server ${params.CHOICES}"
                     }
-                }
             }
-        }
         stage('test')
         {
             steps
