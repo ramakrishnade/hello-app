@@ -61,7 +61,7 @@ pipeline {
                 script
                 {
                     
-                    checkoutScm("https://github.com/ramakrishnade/hello-app.git","master")
+                    checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
                 }
             }
         }
