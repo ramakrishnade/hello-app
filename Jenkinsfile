@@ -58,11 +58,7 @@ pipeline {
         {
             steps
             {
-                script
-                {
-                    
-                    checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
-                }
+               checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
             }
         }
     }
