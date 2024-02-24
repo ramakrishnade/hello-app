@@ -10,6 +10,14 @@ pipeline
             steps
             {
                checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
+               echo "Hello-world"
+                sh 'docker images'
+                sh 'git -v'
+                sh 'docker -v'
+                sh 'java -version'
+                sh 'docker ps'
+                sh 'docker ps -a'
+                sh 'npm -v'
             }
         }
     }
