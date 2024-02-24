@@ -9,8 +9,7 @@ pipeline
         {
             steps
             {
-                // Clean before build
-                cleanWs()
+                cleanup_workspace_folder()
             }
         }
     }
