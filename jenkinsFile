@@ -7,6 +7,13 @@ parameters {
         choice(name:'ENVIRONMENT' ,choices:['stage','test','prod'],description:'Choose stage')
     }
     stages {
+        stage('Cleanup Workplace')
+        {
+            stage()
+            {
+                cleanupWorkplace()
+            }
+        }
         stage('Hello') {
             steps {
                 echo 'Hello World'

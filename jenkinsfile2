@@ -1,0 +1,17 @@
+@Library("Jenkins-pipeline-library@main@main")_
+
+pipeline
+{
+    agent 'linux'
+    stages
+    {
+        stage("Cleanup Workdirectory")
+        {
+            stages
+            {
+                cleanupWorkplace()
+            }
+        }
+    }
+
+}
