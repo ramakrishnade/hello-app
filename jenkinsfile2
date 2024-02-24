@@ -3,6 +3,9 @@
 pipeline
 {
     agent {label 'linux'}
+    environment {
+        EMAIL_TO = 'ramky.drk@gmail.com'
+    }
     stages
     {
         stage('Checkout Scm')
@@ -25,7 +28,7 @@ pipeline
         always {
             echo 'I will always execute this!'
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+            to: "${EMAIL_TO}", 
             subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
         }
         aborted {
