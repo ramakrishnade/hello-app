@@ -29,13 +29,7 @@ pipeline
             emailext (
                 subject: "Jenkins Build ${currentBuild.currentResult }: Job ${env.JOB_NAME}",
                 to: 'ramky.drk@gmail.com',
-                body: '''<html>
-                    <body>
-                        <p>Build Status : ${currentBuild.currentResult }</p>
-                        <p>Build Number ${env.BUILD_NUMBER}</p>
-                        <p></p>
-                    </body>
-                </html>''',
+                body: 'Text',
                 from: 'ramky.drk@gmail.com',
                 replyTo: 'devulapally.ramu@gmail.com',
                 mimeType: 'text/html'
