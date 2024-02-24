@@ -18,7 +18,6 @@ pipeline
             {
                checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
             }
-            }
         }
     }
 
