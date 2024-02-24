@@ -57,8 +57,7 @@ pipeline
                     from: 'devulapally.ramu@gmail.com',
                     replyTo: 'devulapally.ramu@gmail.com',
                     mimeType: 'text/html'
-        )
-        )
+                )
 
             echo 'Release Success'
         }
