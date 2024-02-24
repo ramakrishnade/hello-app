@@ -27,11 +27,11 @@ pipeline
     post {
         always {
             emailext (
-                subject: "Jenkins Build ${currentBuild.result}: Job ${env.JOB_NAME}",
+                subject: "Jenkins Build ${currentBuild.currentResult }: Job ${env.JOB_NAME}",
                 to: 'ramky.drk@gmail.com',
                 body: '''<html>
                     <body>
-                        <p>Build Status : ${currentBuild.result}</p>
+                        <p>Build Status : ${currentBuild.currentResult }</p>
                         <p>Build Number ${env.BUILD_NUMBER}</p>
                         <p></p>
                     </body>
