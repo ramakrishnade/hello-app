@@ -5,11 +5,19 @@ pipeline
     agent {label 'linux'}
     stages
     {
-        stage("Cleanup Workdirectory")
+        stage("Cleanup Workspace folder")
         {
             steps
             {
                 cleanup_workspace_folder()
+            }
+        }
+        stage('checkout scmGit')
+        {
+            steps
+            {
+               checkoutScm(branch : "master", repoUrl : "https://github.com/ramakrishnade/hello-app.git")
+            }
             }
         }
     }
