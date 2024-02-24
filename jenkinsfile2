@@ -26,14 +26,20 @@ pipeline
     }
     post {
         always {
-            emailext body: 'Check console output at $BUILD_URL to view the results.', 
-            to: "ramky.drk@gmail.com", 
-            subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
-
-            echo 'I will always execute this!'
-            //emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
-            //to: "${EMAIL_TO}", 
-           // subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            emailext (
+                subject: "Jenkins Build ${currentBuild.result}: Job ${env.JOB_NAME}",
+                to: 'ramky.drk@gmail.com',
+                body: '''<html>
+                    <body>
+                        <p>Build Status : ${currentBuild.result}</p>
+                        <p>Build Number ${env.BUILD_NUMBER}</p>
+                        <p></p>
+                    </body>
+                </html>''',
+                from: 'ramky.drk@gmail.com',
+                replyTo: 'devulapally.ramu@gmail.com',
+                mimeType: 'text/html'
+            )
         }
         aborted {
             echo 'aborted'
