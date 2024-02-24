@@ -5,14 +5,7 @@ pipeline
     agent {label 'linux'}
     stages
     {
-        stage("Cleanup Workspace folder")
-        {
-            steps
-            {
-                cleanup_workspace_folder()
-            }
-        }
-        stage('checkout scmGit')
+        stage('Checkout Scm')
         {
             steps
             {
@@ -20,5 +13,23 @@ pipeline
             }
         }
     }
+    post {
+        always {
+            echo 'I will always execute this!'
+        }
+        aborted {
+            echo 'aborted'
+        }
+        failure {
+            echo 'Release Failed'
+        }
+        success {
+            echo 'Release Success'
+        }
+        cleanup {
+            cleanup_workspace_folder()
+        }
+    }
+
 
 }
