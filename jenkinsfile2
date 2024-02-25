@@ -42,7 +42,6 @@ pipeline
                 sh 'ls -al'
                 sh 'node -v'
                 sh 'npm -v'
-                echo 'Start building process.'
                 sh 'npm install',
                 //sh 'npm run build'
 
