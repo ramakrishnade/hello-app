@@ -51,7 +51,11 @@ pipeline
         }
         stage("SonarQube analysis") {
             steps{
-                 echo " SonarQube analysis"
+                withSonarQubeEnv(credentialsId: 'SonarQube-token') {
+                    // some block
+                    echo 'SonarQube analysis'
+                }
+                 
                 
 
             }
