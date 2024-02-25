@@ -31,7 +31,7 @@ pipeline
                 sh 'npm -v'
             }
         }
-        stage('Build')
+        stage('Install Dependencies')
         {
             steps{
                 sh 'printenv' 
@@ -50,7 +50,12 @@ pipeline
             }
             
         }
-        stage("SonarQube analysis") {
+        stage("Run Test"){
+          steps{
+            sh "npm test"
+          }      
+        }
+        /* stage("SonarQube analysis") {
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube ',credentialsId: 'SonarQube-token') {
                     // some block
@@ -59,7 +64,7 @@ pipeline
                 }
             }
 
-        }
+        } */
     }
     post {
         always {
