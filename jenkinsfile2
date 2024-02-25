@@ -54,7 +54,7 @@ pipeline
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube ',credentialsId: 'SonarQube-token') {
                     // some block
-                    sh 'npm run sonar-scanner'
+                    sh "npm run sonar"
                     echo 'SonarQube analysis'
                 }
             }
