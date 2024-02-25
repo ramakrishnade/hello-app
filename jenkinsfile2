@@ -53,6 +53,7 @@ pipeline
             steps{
                 withSonarQubeEnv(credentialsId: 'SonarQube-token') {
                     // some block
+                    sh "sonar:sonar"
                     echo 'SonarQube analysis'
                 }
                  
