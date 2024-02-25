@@ -8,7 +8,7 @@ scanner(
       'sonar.projectName': 'hello-app',
       'sonar.projectDescription': 'Description for "hello-app" project...',
       'sonar.sources': 'src',
-      'sonar.tests': 'test',
+      //'sonar.tests': 'test',
     },
   },
   () => process.exit(),
