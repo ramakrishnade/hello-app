@@ -42,6 +42,7 @@ pipeline
                 sh 'ls -al'
                 sh 'node -v'
                 sh 'npm -v'
+                echo 'Start building process.
                 sh 'npm install'
                 //sh 'npm run build'
 
@@ -53,7 +54,7 @@ pipeline
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube ',credentialsId: 'SonarQube-token') {
                     // some block
-                    sh "npm install sonar:sonar"
+                    sh 'npm run sonar-scanner'
                     echo 'SonarQube analysis'
                 }
             }
