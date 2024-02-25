@@ -43,11 +43,20 @@ pipeline
                 sh 'node -v'
                 sh 'npm -v'
                 sh 'npm install'
-                sh 'npm run build'
+                //sh 'npm run build'
 
 
             }
             
+        }
+        stage("SonarQube analysis") {
+            steps{
+                withSonarQubeEnv(credentialsId: 'SonarQube-token') {
+                    echo " SonarQube analysis"
+                }
+
+            }
+
         }
     }
     post {
