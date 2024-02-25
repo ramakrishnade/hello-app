@@ -27,7 +27,7 @@ pipeline
                 sh 'java -version'
                 sh 'docker ps'
                 sh 'docker ps -a'
-                //sh 'npm -v'
+                sh 'npm -v'
             }
         }
     }
