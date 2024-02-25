@@ -33,7 +33,18 @@ pipeline
         stage('Build')
         {
             steps{
-                sh 'npm install'
+                sh 'printenv' 
+                sh 'pwd'
+                sh 'whoami'
+                echo '$PATH'
+                sh 'which npm'
+                sh 'ls -al'
+                sh 'nodejs -v'
+                sh 'npm -v'
+                sh 'sudo npm install'
+                sh 'sudo npm run build'
+
+
             }
             
         }
