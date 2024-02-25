@@ -58,7 +58,7 @@ pipeline
         stage("SonarQube analysis") {
             steps{
                 echo 'SonarQube analysis'
-                withSonarQubeEnv(installationName: 'SonarQube ',credentialsId: 'SonarQube-token') {
+                withSonarQubeEnv('SonarQube') {
                     // some block
                     echo 'SonarQube analysis'
                     //sh "npm run sonar"
