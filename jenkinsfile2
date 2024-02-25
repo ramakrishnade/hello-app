@@ -62,7 +62,8 @@ pipeline
                     // some block
                     echo 'SonarQube analysis'
                     //sh "npm run sonar"
-                    npm run sonar-scan
+                    sh "npm install sonar-scanner"
+                    sh "npm run sonar"
                     
                 }
             }
