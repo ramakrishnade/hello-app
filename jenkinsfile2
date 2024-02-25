@@ -50,21 +50,22 @@ pipeline
             }
             
         }
-        stage("Run Test"){
+        /* stage("Run Test"){
           steps{
             sh "npm test"
           }      
-        }
-        /* stage("SonarQube analysis") {
+        } */
+        stage("SonarQube analysis") {
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube ',credentialsId: 'SonarQube-token') {
                     // some block
-                    sh "npm run sonar"
                     echo 'SonarQube analysis'
+                    sh "npm run sonar"
+                    
                 }
             }
 
-        } */
+        }
     }
     post {
         always {
