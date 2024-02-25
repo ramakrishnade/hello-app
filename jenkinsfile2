@@ -86,7 +86,7 @@ pipeline
             echo 'Release Success'
         }
         cleanup {
-            cleanup_workspace_folder()
+            //cleanup_workspace_folder()
         }
     }
 
