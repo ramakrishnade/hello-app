@@ -3,6 +3,8 @@
 pipeline
 {
     agent {label 'linux'}
+    tools {nodejs "NodeJS 21.6.2"}
+
     environment {
         EMAIL_TO = 'ramky.drk@gmail.com'
     }
@@ -65,25 +67,19 @@ pipeline
                 }
             }
         }
-        /* stage("Run Test"){
-          steps{
-            sh "npm test"
-          }      
-        } */
-        /* stage("SonarQube analysis") {
+        stage("SonarQube analysis") {
+            environment 
+            {
+                SCANNER_HOME = tool 'SonarQube 5.0.1.3006';    
+            }
             steps{
                 echo 'SonarQube analysis'
                 withSonarQubeEnv('SonarQube') {
-                    // some block
-                    echo 'SonarQube analysis'
-                    //sh "npm run sonar"
-                    sh "npm install sonar-scanner"
-                    sh "npm run sonar"
-                    
+                    sh "${SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
 
-        } */
+        }
     }
     post {
         always {

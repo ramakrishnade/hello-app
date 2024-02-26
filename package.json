@@ -15,8 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -36,4 +35,5 @@
       "last 1 safari version"
     ]
   }
+  
 }
