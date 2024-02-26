@@ -50,12 +50,27 @@ pipeline
             }
             
         }
+        stage('Test') {
+            steps {
+                script {
+                sh 'npm run test'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                sh 'npm start'
+                sh 'npm pack'
+                }
+            }
+        }
         /* stage("Run Test"){
           steps{
             sh "npm test"
           }      
         } */
-        stage("SonarQube analysis") {
+        /* stage("SonarQube analysis") {
             steps{
                 echo 'SonarQube analysis'
                 withSonarQubeEnv('SonarQube') {
@@ -68,7 +83,7 @@ pipeline
                 }
             }
 
-        }
+        } */
     }
     post {
         always {
