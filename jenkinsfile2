@@ -52,10 +52,10 @@ pipeline
             }
             
         }
-        /* stage('Test') {
+         stage('Test') {
             steps {
                 script {
-                sh 'npm run test'
+                sh 'npm test'
                 }
             }
         }
@@ -63,19 +63,19 @@ pipeline
             steps {
                 script {
                 sh 'npm start'
-                sh 'npm pack'
+                //sh 'npm pack'
                 }
             }
-        } */
+        } 
         
-        stage("SonarQube analysis") {
+        /* stage("SonarQube analysis") {
             environment 
             {
                 scannerhome = tool 'SonarQube 5.0.1.3006';    
             }
             steps{
                 echo 'SonarQube analysis'
-                withSonarQubeEnv(credentialsId: 'SonarQube-Token',installationName: 'SonarQube') {
+                withSonarQubeEnv(credentialsId: 'squ_d3d0bbc2bdc5a929e1ad707202c1f6246bf66ee4',installationName: 'SonarQube') {
                     sh '''
                         ${scannerhome}/bin/sonar-scanner \
                         -d sonar.projectkey=hello-app \
@@ -88,9 +88,9 @@ pipeline
 
                     echo "${env.SONAR_HOST_URL}"
                 }
-            }
+            } 
 
-        }
+        }*/
     }
     post {
         always {
