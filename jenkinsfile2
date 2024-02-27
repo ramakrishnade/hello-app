@@ -3,14 +3,12 @@
 pipeline
 {
     agent {label 'linux'}
-    tools {
-        nodejs "NodeJS 21.6.2"
-        
-    }
+    tools {nodejs "NodeJS 21.6.2"}
 
     environment {
         EMAIL_TO = 'ramky.drk@gmail.com'
         CI = false
+
     }
     stages
     {
@@ -56,35 +54,28 @@ pipeline
             }
             
         }
-         stage('Test') {
-            steps {
-                script {
-                sh "npm run build"
-                 sh "chmod +x -R ${env.WORKSPACE}"
-                sh './welcome.sh'
-                //sh 'npm test'
-                }
-            }
-        }
         stage('Build') {
             steps {
-                script {
-                     echo "Test"
-                }
+                script { sh "npm run build"}
             }
         } 
         
         stage("SonarQube analysis") {
             environment 
             {
-                def scannerHome = tool 'SonarQube 5.0.1.3006'; 
+                def scannerHome = tool 'SonarQube 5.0.1.3006';   
             }
-
             steps{
                 echo 'SonarQube analysis'
-                withSonarQubeEnv( 'SonarQube') {
-                    // some   
-                    sh "${scannerHome}/bin/sonar-scanner"
+                withSonarQubeEnv(credentialsId: 'squ_d3d0bbc2bdc5a929e1ad707202c1f6246bf66ee4',installationName: 'SonarQube') {
+                    sh '''
+                        ${scannerhome}/bin/sonar-scanner \
+                        -d sonar.projectKey=Hello-App \
+                        -d sonar.projectname=Hello App \
+                        -d sonar.projectversion=1.0.0 \
+                        -d sonar.sources=./src \
+                        -d sonar.exclusions=**/node_modules/**,/coverage/*,test/*.js
+                        '''
                 }
             } 
 
