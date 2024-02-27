@@ -84,7 +84,9 @@ pipeline
                         -d sonar.sources=./src \
                         -d sonar.exclusions=**/node_modules/**,/coverage/*,test/*.js
                         '''
-                    // some block
+                    // some  
+                    echo "end"
+
                     echo "${env.SONAR_HOST_URL}"
                 }
             }
