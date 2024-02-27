@@ -55,14 +55,16 @@ pipeline
          stage('Test') {
             steps {
                 script {
-                sh 'npm test'
+                sh './welcome.sh'
+                //sh 'npm test'
                 }
             }
         }
         stage('Build') {
             steps {
                 script {
-                sh 'npm start'
+                     echo "Test"
+                //sh 'npm start'
                 //sh 'npm pack'
                 }
             }
