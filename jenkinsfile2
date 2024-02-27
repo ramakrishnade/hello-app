@@ -53,12 +53,13 @@ pipeline
             
         }
         stage("SonarQube analysis") {
+            steps{
+                def scannerHome = tool 'SonarQube 5.0.1.3006';
+                withSonarQubeEnv('SonarQube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
 
-            def scannerHome = tool 'SonarQube 5.0.1.3006';
-            withSonarQubeEnv('SonarQube') {
-                sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
-
         }
     }
     post {
