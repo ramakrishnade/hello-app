@@ -71,7 +71,8 @@ pipeline
         stage("SonarQube analysis") {
             environment 
             {
-                def scannerHome = tool 'SonarQube 5.0.1.3006';   
+                def scannerHome = tool 'SonarQube 5.0.1.3006'; 
+            }
 
             steps{
                 echo 'SonarQube analysis'
