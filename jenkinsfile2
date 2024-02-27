@@ -60,22 +60,13 @@ pipeline
             }
         } 
         
-        stage("SonarQube analysis") {
-            environment 
-            {
-                def scannerHome = tool 'SonarQube 5.0.1.3006';   
-            }
+        stage("SonarQube analysis") {   
             steps{
                 echo 'SonarQube analysis'
-                withSonarQubeEnv(credentialsId: 'squ_d3d0bbc2bdc5a929e1ad707202c1f6246bf66ee4',installationName: 'SonarQube') {
-                    sh '''
-                        ${scannerhome}/bin/sonar-scanner \
-                        -d sonar.projectKey=Hello-App \
-                        -d sonar.projectname=Hello App \
-                        -d sonar.projectversion=1.0.0 \
-                        -d sonar.sources=./src \
-                        -d sonar.exclusions=**/node_modules/**,/coverage/*,test/*.js
-                        '''
+                def scannerHome = tool 'SonarQube 5.0.1.3006';
+                withSonarQubeEnv('SonarQube') {
+                    sh "${tool("scannerHome")}/bin/sonar-scanner -Dsonar.projectKey=Hello-App -Dsonar.projectName=Hello-App"
+
                 }
             } 
 
