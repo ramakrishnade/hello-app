@@ -75,7 +75,7 @@ pipeline
             }
             steps{
                 echo 'SonarQube analysis'
-                withSonarQubeEnv(credentialsId: 'SonarQube-Token') {
+                withSonarQubeEnv(credentialsId: 'SonarQube-Token',installationName: 'SonarQube') {
                     // some block
                     echo "${env.SONAR_HOST_URL}"
                 }
