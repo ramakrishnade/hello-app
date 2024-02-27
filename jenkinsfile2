@@ -71,11 +71,20 @@ pipeline
         stage("SonarQube analysis") {
             environment 
             {
-                SCANNER_HOME = tool 'SonarQube 5.0.1.3006';    
+                scannerhome = tool 'SonarQube 5.0.1.3006';    
             }
             steps{
                 echo 'SonarQube analysis'
                 withSonarQubeEnv(credentialsId: 'SonarQube-Token',installationName: 'SonarQube') {
+                    sh '''
+                        ${scannerhome}/bin/sonar-scanner \
+                        -d sonar.projectkey=hello-app \
+                        -d sonar.projectname=hello-app \
+                        -d sonar.projectversion=1.0.0 \
+                        -d sonar.languages=js,ts \  // deprecated, do not use this option
+                        -d sonar.sources=./src \
+                        -d sonar.exclusions=**/node_modules/**,/coverage/*,test/*.js
+                        '''
                     // some block
                     echo "${env.SONAR_HOST_URL}"
                 }
