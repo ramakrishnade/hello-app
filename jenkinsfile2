@@ -5,11 +5,12 @@ pipeline
     agent {label 'linux'}
     tools {
         nodejs "NodeJS 21.6.2"
-        CI = false
+        
     }
 
     environment {
         EMAIL_TO = 'ramky.drk@gmail.com'
+        CI = false
     }
     stages
     {
