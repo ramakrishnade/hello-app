@@ -3,7 +3,10 @@
 pipeline
 {
     agent {label 'linux'}
-    tools {nodejs "NodeJS 21.6.2"}
+    tools {
+        nodejs "NodeJS 21.6.2"
+        CI = false
+    }
 
     environment {
         EMAIL_TO = 'ramky.drk@gmail.com'
@@ -51,6 +54,23 @@ pipeline
 
             }
             
+        }
+         stage('Test') {
+            steps {
+                script {
+                sh "npm run build"
+                 sh "chmod +x -R ${env.WORKSPACE}"
+                sh './welcome.sh'
+                //sh 'npm test'
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                     echo "Test"
+                }
+            }
         } 
         
         stage("SonarQube analysis") {
