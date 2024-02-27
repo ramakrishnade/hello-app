@@ -81,8 +81,9 @@ pipeline
                         -d sonar.projectkey=hello-app \
                         -d sonar.projectname=hello-app \
                         -d sonar.projectversion=1.0.0 \
-                        -d sonar.languages=js,ts \  // deprecated, do not use this option
+                        // -d sonar.languages=js,ts \  // deprecated, do not use this option
                         -d sonar.sources=./src \
+                        // -d sonar.test.inclusions=your_inclusions_here \
                         -d sonar.exclusions=**/node_modules/**,/coverage/*,test/*.js
                         '''
                     // some block
