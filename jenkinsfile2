@@ -79,6 +79,11 @@ pipeline
             } 
 
         }
+        stage("Quality gate") {
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'SonarQube-Token'
+            }
+        }
     }
     post {
         always {
