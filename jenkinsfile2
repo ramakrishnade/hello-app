@@ -47,7 +47,7 @@ pipeline
                 sh 'node -v'
                 sh 'npm -v'
                 //sh 'npm run sonar-scanner'
-               // sh 'npm install'
+                //sh 'npm install'
                 //sh 'npm run build'
 
 
@@ -70,9 +70,7 @@ pipeline
         stage("SonarQube analysis") {   
             steps{
                 script {
-                    def scannerHome = tool 'SonarQube-5.0.1.3006'
-                    def sonarQubeApi = 'SonarQube'
-                   code-analysis(SonarQube:'SonarQube',scannerHome:scannerHome)
+                   code-analysis()
                 }
             } 
 
