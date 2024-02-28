@@ -64,10 +64,10 @@ pipeline
         stage("SonarQube analysis") {   
             steps{
                 script {
-                    echo 'SonarQube analysis'
-                    def scannerHome = tool 'SonarQube 5.0.1.3006';
+                   // def scannerHome = tool 'SonarQube 5.0.1.3006';
                     withSonarQubeEnv('SonarQube') {
-                        sh "${tool("scannerHome")}/bin/sonar-scanner -Dsonar.projectKey=Hello-App -Dsonar.projectName=Hello-App"
+                        
+                        echo 'SonarQube analysis'
                     }
                 }
             } 
