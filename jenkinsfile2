@@ -47,7 +47,8 @@ pipeline
                 sh 'ls -al'
                 sh 'node -v'
                 sh 'npm -v'
-                npmBuild()
+                sh 'npm install'
+                //npmBuild()
                 //sh 'npm run sonar-scanner'
                 //sh 'npm install'
                 //sh 'npm run build'
