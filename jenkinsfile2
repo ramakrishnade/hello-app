@@ -54,11 +54,6 @@ pipeline
             }
             
         }
-        stage('Test') {
-            steps {
-               script { sh "test"}
-            }
-        }
         /* stage('Build') {
             steps {
                 echo 'build'
