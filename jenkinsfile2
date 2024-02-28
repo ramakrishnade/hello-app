@@ -54,18 +54,6 @@ pipeline
             }
             
         }
-        stage('Build') {
-            steps {
-                echo 'build'
-               script { sh "npm run build"}
-            }
-        }
-         stage('Test') {
-            steps {
-                echo 'Test'
-               script { sh "Test"}
-            }
-        } 
         
         stage("SonarQube analysis") {   
             steps{
