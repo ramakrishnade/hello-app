@@ -47,7 +47,7 @@ pipeline
                 sh 'ls -al'
                 sh 'node -v'
                 sh 'npm -v'
-                //sh 'npm install'
+                sh 'npm install'
                 //npmBuild()
                 //sh 'npm run sonar-scanner'
                 //sh 'npm install'
@@ -60,7 +60,8 @@ pipeline
         stage('Test') {
             steps {
                 echo 'Test'
-               npmTest()
+                sh 'node test'
+               //npmTest()
             }
         } 
         /* stage('Build') {
