@@ -65,7 +65,7 @@ pipeline
             steps{
                 script {
                    // def scannerHome = tool 'SonarQube 5.0.1.3006';
-                   withSonarQubeEnv(credentialsId: 'SonarQube-Token') {
+                   withSonarQubeEnv(credentialsId: 'squ_fbc59d8f795b00ec94e670ad67a50c384150175c',installationName: 'SonarQube') {
                             // some block
                              echo 'SonarQube analysis'
                     }
