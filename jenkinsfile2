@@ -57,7 +57,13 @@ pipeline
             }
             
         }
-        stage('Test') {
+        stage("Test"){
+            steps{
+                echo 'testing app'
+                sh "npm run test"
+            }
+        }
+        stage('Buls') {
             steps {
                 echo 'build'
                 sh "npm run build"
