@@ -47,7 +47,7 @@ pipeline
                 sh 'node -v'
                 sh 'npm -v'
                 //sh 'npm run sonar-scanner'
-                //sh 'npm install'
+                sh 'npm install'
                 //sh 'npm run build'
 
 
