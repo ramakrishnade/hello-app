@@ -63,7 +63,7 @@ pipeline
          stage('Test') {
             steps {
                 echo 'Test'
-               script { sh "test "}
+               script { sh "Test"}
             }
         } 
         
