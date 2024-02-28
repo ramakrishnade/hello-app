@@ -47,13 +47,25 @@ pipeline
                 sh 'node -v'
                 sh 'npm -v'
                 //sh 'npm run sonar-scanner'
-                sh 'npm install'
+                //sh 'npm install'
                 //sh 'npm run build'
 
 
             }
             
         }
+        /* stage('Build') {
+            steps {
+                echo 'build'
+               script { sh "npm build"}
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'Test'
+               script { sh "test"}
+            }
+        }  */
         
         stage("SonarQube analysis") {   
             steps{
