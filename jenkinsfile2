@@ -57,7 +57,13 @@ pipeline
         stage('Build') {
             steps {
                 echo 'build'
-               // script { sh "npm run build"}
+               script { sh "npm run build"}
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'Test'
+               script { sh "test "}
             }
         } 
         
