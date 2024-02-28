@@ -18,6 +18,7 @@ pipeline
             {
                 cleanup_workspace_folder()
                 sendNotifications 'STARTED'
+                echo "Building ${env.JOB_NAME}..."
             }
         }
         stage('Checkout Scm')
@@ -46,6 +47,7 @@ pipeline
                 sh 'ls -al'
                 sh 'node -v'
                 sh 'npm -v'
+                npmBuild()
                 //sh 'npm run sonar-scanner'
                 //sh 'npm install'
                 //sh 'npm run build'
@@ -73,6 +75,7 @@ pipeline
                     def scannerHome = tool 'SonarQube-5.0.1.3006';
                     withSonarQubeEnv('SonarQube') {
                         sh "${scannerHome}/bin/sonar-scanner"
+                        echo 'Static Analysis Completed' 
                     }
                   // code-analysis()
                 }
@@ -83,6 +86,7 @@ pipeline
             steps{
                  timeout(time: 1, unit: 'HOURS') {
                     waitForQualityGate abortPipeline: true, credentialsId: 'SonarQube-Token'
+                    echo 'Quality Gate Passed' 
                 }
             }
         }
