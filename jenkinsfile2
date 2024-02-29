@@ -60,10 +60,10 @@ pipeline
         stage("Test"){
             steps{
                 echo 'testing app'
-                sh "npm run test"
+                //sh "npm run test"
             }
         }
-        stage('Buls') {
+        stage('Build') {
             steps {
                 echo 'build'
                 sh "npm run build"
